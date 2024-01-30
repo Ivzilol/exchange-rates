@@ -12,9 +12,7 @@ import org.springframework.kafka.core.ProducerFactory;
 @Configuration
 public class KafkaConfig {
 
-
     public static String EXCHANGE_RATE_TOPIC = "exchange_rates";
-
 
     @Bean
     public NewTopic exRateTopic() {
