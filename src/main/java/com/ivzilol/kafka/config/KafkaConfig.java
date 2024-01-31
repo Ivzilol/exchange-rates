@@ -26,7 +26,7 @@ public class KafkaConfig {
                 kafkaProperties.buildProducerProperties()
         );
     }
-    
+
     @Bean
     public KafkaTemplate<String, Object> jsonKafkaTemplate(
             ProducerFactory<String, Object> producerFactory) {
