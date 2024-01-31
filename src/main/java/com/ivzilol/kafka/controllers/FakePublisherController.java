@@ -11,7 +11,6 @@ import java.util.Map;
 
 @RestController
 public class FakePublisherController {
-
     private final KafkaPublicationService kafkaPublicationService;
 
     public FakePublisherController(KafkaPublicationService kafkaPublicationService) {
