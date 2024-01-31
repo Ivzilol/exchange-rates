@@ -29,7 +29,6 @@ public class FakePublisherController {
         );
 
         kafkaPublicationService.publishExchangeRate(toPublish);
-
         return "OK";
     }
 }
