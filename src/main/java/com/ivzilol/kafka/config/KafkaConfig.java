@@ -17,7 +17,7 @@ public class KafkaConfig {
     @Bean
     public NewTopic exRateTopic() {
         return TopicBuilder.name("exchange_rates")
-                .partitions(1)
+                .partitions(2)
                 .build();
     }
     @Bean
