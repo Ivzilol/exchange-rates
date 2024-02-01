@@ -5,9 +5,11 @@ import com.ivzilol.kafka.model.ExchangeRatesDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 import static com.ivzilol.kafka.config.KafkaConfig.EXCHANGE_RATE_TOPIC;
 
@@ -43,8 +45,24 @@ public class KafkaPublicationService {
     }
 
     public boolean publishRate(ExRatesDTO exRatesDTO) {
+        CompletableFuture<SendResult<String, Object>> sendResultCompletableFuture = kafkaTemplate
+                .send(EXCHANGE_RATE_TOPIC, UUID.randomUUID().toString(), exRatesDTO)
+                .whenComplete(
+                (res, ex) -> {
+                    if (ex == null) {
+                        LOGGER.info(
+                                "Kafka message successfully send to topic {}/partition {}/ offset {}. Key = {}.",
+                                res.getRecordMetadata().topic(),
+                                res.getRecordMetadata().partition(),
+                                res.getRecordMetadata().offset(),
+                                res.getProducerRecord().key()
+                        );
+                    } else {
+                        LOGGER.error("Problem with the publication to kafka.", ex);
+                    }
+                }
 
-
-        return true;
+        );
+        return sendResultCompletableFuture.isCancelled();
     }
 }

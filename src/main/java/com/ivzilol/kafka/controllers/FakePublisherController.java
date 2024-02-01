@@ -38,7 +38,7 @@ public class FakePublisherController {
     public ResponseEntity<?> getExchangeRates(@RequestBody ExRatesDTO exRatesDTO) {
         boolean isPublish = this.kafkaPublicationService.publishRate(exRatesDTO);
         CustomResponse customResponse = new CustomResponse();
-        if (isPublish) {
+        if (!isPublish) {
             customResponse.setCustom("Successful publish in kafka");
         } else {
             customResponse.setCustom("Unsuccessful publish in kafka");
