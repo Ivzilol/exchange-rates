@@ -17,8 +17,8 @@ function App() {
         const requestBody = {
             currency: currency,
             rates: {
-                first: firstExchangeRate,
-                second: secondExchangeRate
+                BGR: firstExchangeRate,
+                EUR: secondExchangeRate
             }
         }
         fetch(`${baseURL}`, {
