@@ -2,13 +2,12 @@ package com.ivzilol.kafka.controllers;
 
 
 import com.ivzilol.kafka.model.ExRatesDTO;
-import com.ivzilol.kafka.model.ExchangeRatesDTO;
 import com.ivzilol.kafka.service.KafkaPublicationService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
-import java.util.Map;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FakePublisherController {
@@ -19,19 +18,19 @@ public class FakePublisherController {
         this.kafkaPublicationService = kafkaPublicationService;
     }
 
-    @GetMapping("/publish")
-    public String publish() {
-        var toPublish = new ExchangeRatesDTO(
-                "USD",
-                System.currentTimeMillis(),
-                Map.of("BGN", BigDecimal.valueOf(1.840515),
-                        "EUR", BigDecimal.valueOf(0.937668)
-                )
-        );
-
-        kafkaPublicationService.publishExchangeRate(toPublish);
-        return "OK";
-    }
+//    @GetMapping("/publish")
+//    public String publish() {
+//        var toPublish = new ExchangeRatesDTO(
+//                "USD",
+//                System.currentTimeMillis(),
+//                Map.of("BGN", BigDecimal.valueOf(1.840515),
+//                        "EUR", BigDecimal.valueOf(0.937668)
+//                )
+//        );
+//
+//        kafkaPublicationService.publishExchangeRate(toPublish);
+//        return "OK";
+//    }
 
     @PostMapping("")
     @CrossOrigin(origins = "http://localhost:3000")

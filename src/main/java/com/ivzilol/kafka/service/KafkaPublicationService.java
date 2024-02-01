@@ -1,7 +1,6 @@
 package com.ivzilol.kafka.service;
 
 import com.ivzilol.kafka.model.ExRatesDTO;
-import com.ivzilol.kafka.model.ExchangeRatesDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -23,26 +22,26 @@ public class KafkaPublicationService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void publishExchangeRate(ExchangeRatesDTO exchangeRatesDTO) {
-        kafkaTemplate.
-                send(EXCHANGE_RATE_TOPIC, UUID.randomUUID().toString(), exchangeRatesDTO).
-                whenComplete(
-                        (res, ex) -> {
-                            if (ex == null) {
-                                LOGGER.info(
-                                        "Kafka message successfully send to topic {}/partition {}/ offset {}. Key = {}.",
-                                        res.getRecordMetadata().topic(),
-                                        res.getRecordMetadata().partition(),
-                                        res.getRecordMetadata().offset(),
-                                        res.getProducerRecord().key()
-                                );
-                            } else {
-                                LOGGER.error("Problem with the publication to kafka.", ex);
-                            }
-                        }
-
-                );
-    }
+//    public void publishExchangeRate(ExchangeRatesDTO exchangeRatesDTO) {
+//        kafkaTemplate.
+//                send(EXCHANGE_RATE_TOPIC, UUID.randomUUID().toString(), exchangeRatesDTO).
+//                whenComplete(
+//                        (res, ex) -> {
+//                            if (ex == null) {
+//                                LOGGER.info(
+//                                        "Kafka message successfully send to topic {}/partition {}/ offset {}. Key = {}.",
+//                                        res.getRecordMetadata().topic(),
+//                                        res.getRecordMetadata().partition(),
+//                                        res.getRecordMetadata().offset(),
+//                                        res.getProducerRecord().key()
+//                                );
+//                            } else {
+//                                LOGGER.error("Problem with the publication to kafka.", ex);
+//                            }
+//                        }
+//
+//                );
+//    }
 
     public boolean publishRate(ExRatesDTO exRatesDTO) {
         CompletableFuture<SendResult<String, Object>> sendResultCompletableFuture = kafkaTemplate
