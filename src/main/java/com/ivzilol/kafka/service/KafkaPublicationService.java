@@ -15,7 +15,7 @@ import static com.ivzilol.kafka.config.KafkaConfig.EXCHANGE_RATE_TOPIC;
 @Service
 public class KafkaPublicationService {
 
-    private Logger LOGGER = LoggerFactory.getLogger(KafkaPublicationService.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(KafkaPublicationService.class);
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
     public KafkaPublicationService(KafkaTemplate<String, Object> kafkaTemplate) {
@@ -62,6 +62,6 @@ public class KafkaPublicationService {
                 }
 
         );
-        return sendResultCompletableFuture.isCancelled();
+        return !sendResultCompletableFuture.isCancelled();
     }
 }
