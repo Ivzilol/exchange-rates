@@ -1,5 +1,6 @@
 package com.ivzilol.kafka.service;
 
+import com.ivzilol.kafka.model.ExRatesDTO;
 import com.ivzilol.kafka.model.ExchangeRatesDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,5 +40,11 @@ public class KafkaPublicationService {
                         }
 
                 );
+    }
+
+    public boolean publishRate(ExRatesDTO exRatesDTO) {
+
+
+        return true;
     }
 }
