@@ -5,15 +5,11 @@ import baseURL from "./components/BaseURL";
 function App() {
 
     const [currency, setCurrency] = useState("");
-    const [firstCountry, setFirstCountry] = useState("");
     const [firstExchangeRate, setFirstExchangeRate] = useState(0);
-    const [secondCountry, setSecondCountry] = useState("");
     const [secondExchangeRate, setSecondExchangeRate] = useState(0);
 
 
     function send() {
-        let first = firstCountry;
-        let second = secondCountry;
         const requestBody = {
             currency: currency,
             rates: {
@@ -48,15 +44,7 @@ function App() {
                     onChange={(e) => setCurrency(e.target.value)}
                 />
                 <section className="exchange-rates-bg">
-                    <label>Country 1</label>
-                    <input
-                        type="text"
-                        id="country"
-                        name="country"
-                        placeholder="Country"
-                        value={firstCountry}
-                        onChange={(e) => setFirstCountry(e.target.value)}
-                    />
+                    <label>BGR</label>
                     <input
                         type="number"
                         id="firstExchangeRate"
@@ -64,15 +52,7 @@ function App() {
                         value={firstExchangeRate}
                         onChange={(e) => setFirstExchangeRate(e.target.valueAsNumber)}
                     />
-                    <label>Country 2</label>
-                    <input
-                        type="text"
-                        id="country"
-                        name="country"
-                        placeholder="Country"
-                        value={secondCountry}
-                        onChange={(e) => setSecondCountry(e.target.value)}
-                    />
+                    <label>EUR</label>
                     <input
                         type="number"
                         id="firstExchangeRate"
