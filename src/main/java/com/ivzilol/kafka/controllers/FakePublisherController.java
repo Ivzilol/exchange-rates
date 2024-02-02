@@ -18,19 +18,6 @@ public class FakePublisherController {
         this.kafkaPublicationService = kafkaPublicationService;
     }
 
-//    @GetMapping("/publish")
-//    public String publish() {
-//        var toPublish = new ExchangeRatesDTO(
-//                "USD",
-//                System.currentTimeMillis(),
-//                Map.of("BGN", BigDecimal.valueOf(1.840515),
-//                        "EUR", BigDecimal.valueOf(0.937668)
-//                )
-//        );
-//
-//        kafkaPublicationService.publishExchangeRate(toPublish);
-//        return "OK";
-//    }
 
     @PostMapping("")
     @CrossOrigin(origins = "http://localhost:3000")
