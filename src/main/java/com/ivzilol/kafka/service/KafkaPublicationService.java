@@ -23,7 +23,6 @@ public class KafkaPublicationService {
     }
 
 
-
     public boolean publishRate(ExRatesDTO exRatesDTO) {
         CompletableFuture<SendResult<String, Object>> sendResultCompletableFuture = kafkaTemplate
                 .send(EXCHANGE_RATE_TOPIC, UUID.randomUUID().toString(), exRatesDTO)
