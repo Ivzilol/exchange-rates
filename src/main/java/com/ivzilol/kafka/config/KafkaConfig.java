@@ -20,7 +20,6 @@ public class KafkaConfig {
                 .partitions(2)
                 .build();
     }
-
     @Bean
     public ProducerFactory<String, Object> producerFactory(KafkaProperties kafkaProperties) {
         return new DefaultKafkaProducerFactory<>(
