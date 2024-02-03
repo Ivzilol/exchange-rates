@@ -14,6 +14,7 @@ public class FakePublisherController {
 
     private final KafkaPublicationService kafkaPublicationService;
 
+
     public FakePublisherController(KafkaPublicationService kafkaPublicationService) {
         this.kafkaPublicationService = kafkaPublicationService;
     }
