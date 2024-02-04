@@ -19,7 +19,6 @@ public class FakePublisherController {
         this.kafkaPublicationService = kafkaPublicationService;
     }
 
-
     @PostMapping("")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> getExchangeRates(@RequestBody ExRatesDTO exRatesDTO) {
