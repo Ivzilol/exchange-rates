@@ -29,11 +29,12 @@ public class KafkaPublicationService {
                 (res, ex) -> {
                     if (ex == null) {
                         LOGGER.info(
-                                "Kafka message successfully send to topic {}/partition {}/ offset {}. Key = {}.",
+                                "Kafka message successfully send to topic {}/partition {}/ offset {}. Key = {}/Headers = {}.",
                                 res.getRecordMetadata().topic(),
                                 res.getRecordMetadata().partition(),
                                 res.getRecordMetadata().offset(),
-                                res.getProducerRecord().key()
+                                res.getProducerRecord().key(),
+                                res.getProducerRecord().headers()
                         );
                     } else {
                         LOGGER.error("Problem with the publication to kafka.", ex);
