@@ -1,8 +1,8 @@
-package com.ivzilol.kafka.controllers;
+package com.kafka.controllers;
 
 
-import com.ivzilol.kafka.model.ExRatesDTO;
-import com.ivzilol.kafka.service.KafkaPublicationService;
+import com.kafka.model.ExRatesDTO;
+import com.kafka.service.KafkaPublicationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

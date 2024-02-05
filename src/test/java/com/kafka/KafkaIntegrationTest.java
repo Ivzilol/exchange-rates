@@ -1,4 +1,4 @@
-package com.ivzilol.kafka;
+package com.kafka;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

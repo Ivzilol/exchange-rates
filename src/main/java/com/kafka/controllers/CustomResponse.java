@@ -1,4 +1,4 @@
-package com.ivzilol.kafka.controllers;
+package com.kafka.controllers;
 
 public class CustomResponse {
 

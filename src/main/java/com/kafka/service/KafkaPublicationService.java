@@ -1,6 +1,6 @@
-package com.ivzilol.kafka.service;
+package com.kafka.service;
 
-import com.ivzilol.kafka.model.ExRatesDTO;
+import com.kafka.model.ExRatesDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-import static com.ivzilol.kafka.config.KafkaConfig.EXCHANGE_RATE_TOPIC;
+import static com.kafka.config.KafkaConfig.EXCHANGE_RATE_TOPIC;
 
 @Service
 public class KafkaPublicationService {
@@ -25,7 +25,7 @@ public class KafkaPublicationService {
 
     public boolean publishRate(ExRatesDTO exRatesDTO) {
         CompletableFuture<SendResult<String, Object>> sendResultCompletableFuture = kafkaTemplate
-                .send(EXCHANGE_RATE_TOPIC, UUID.randomUUID().toString(), exRatesDTO)
+                .send(EXCHANGE_RATE_TOPIC, exRatesDTO)
                 .whenComplete(
                 (res, ex) -> {
                     if (ex == null) {
