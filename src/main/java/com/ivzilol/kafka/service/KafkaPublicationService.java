@@ -19,6 +19,7 @@ public class KafkaPublicationService {
 
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
+
     public KafkaPublicationService(KafkaTemplate<String, Object> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
