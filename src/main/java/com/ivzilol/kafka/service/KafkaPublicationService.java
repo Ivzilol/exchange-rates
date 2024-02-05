@@ -16,6 +16,7 @@ import static com.ivzilol.kafka.config.KafkaConfig.EXCHANGE_RATE_TOPIC;
 public class KafkaPublicationService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(KafkaPublicationService.class);
+
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
     public KafkaPublicationService(KafkaTemplate<String, Object> kafkaTemplate) {
