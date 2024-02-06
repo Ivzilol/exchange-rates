@@ -7,6 +7,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 import static com.kafka.config.KafkaConfig.EXCHANGE_RATE_TOPIC;
@@ -24,7 +25,7 @@ public class KafkaPublicationService {
 
     public boolean publishRate(ExRatesDTO exRatesDTO) {
         CompletableFuture<SendResult<String, Object>> sendResultCompletableFuture = kafkaTemplate
-                .send(EXCHANGE_RATE_TOPIC, exRatesDTO)
+                .send(EXCHANGE_RATE_TOPIC, UUID.randomUUID().toString(),exRatesDTO)
                 .whenComplete(
                 (res, ex) -> {
                     if (ex == null) {
