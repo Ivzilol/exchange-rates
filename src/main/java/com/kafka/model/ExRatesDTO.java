@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class ExRatesDTO {
     private String currency;
+
     private Map<String, BigDecimal> rates;
 
     public String getCurrency() {
