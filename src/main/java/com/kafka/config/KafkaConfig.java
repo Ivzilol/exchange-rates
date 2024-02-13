@@ -23,7 +23,6 @@ public class KafkaConfig {
         return new NewTopic(EXCHANGE_RATE_TOPIC, 3, (short) 1);
     }
 
-
     @Bean
     public Map<String,Object> producerConfig(){
         Map<String,Object> props=new HashMap<>();
