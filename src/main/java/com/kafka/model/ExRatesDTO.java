@@ -16,6 +16,7 @@ public class ExRatesDTO {
     public void setCurrency(String currency) {
         this.currency = currency;
     }
+
     public Map<String, BigDecimal> getRates() {
         return rates;
     }
