@@ -20,6 +20,7 @@ public class ExRatesDTO {
     public Map<String, BigDecimal> getRates() {
         return rates;
     }
+
     public void setRates(Map<String, BigDecimal> rates) {
         this.rates = rates;
     }
