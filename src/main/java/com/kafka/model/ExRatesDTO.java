@@ -12,6 +12,7 @@ public class ExRatesDTO {
     public String getCurrency() {
         return currency;
     }
+
     public void setCurrency(String currency) {
         this.currency = currency;
     }
