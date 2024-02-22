@@ -16,7 +16,6 @@ import java.util.Map;
 @Configuration
 public class KafkaConfig {
     public static String EXCHANGE_RATE_TOPIC = "exchange_rates";
-
     @Bean
     public NewTopic createTopic(){
         return new NewTopic(EXCHANGE_RATE_TOPIC, 3, (short) 1);
