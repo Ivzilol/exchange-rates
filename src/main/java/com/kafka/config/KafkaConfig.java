@@ -20,7 +20,6 @@ public class KafkaConfig {
     public NewTopic createTopic(){
         return new NewTopic(EXCHANGE_RATE_TOPIC, 3, (short) 1);
     }
-
     @Bean
     public Map<String,Object> producerConfig(){
         Map<String,Object> props=new HashMap<>();
@@ -32,7 +31,6 @@ public class KafkaConfig {
                 JsonSerializer.class);
         return props;
     }
-
     @Bean
     public ProducerFactory<String,Object> producerFactory(){
         return new DefaultKafkaProducerFactory<>(producerConfig());
