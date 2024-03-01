@@ -7,7 +7,6 @@ public class CustomResponse {
     public String getCustom() {
         return custom;
     }
-
     public void setCustom(String custom) {
         this.custom = custom;
     }
