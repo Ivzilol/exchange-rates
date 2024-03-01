@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FakePublisherController {
-
     private final KafkaPublicationService kafkaPublicationService;
 
     public FakePublisherController(KafkaPublicationService kafkaPublicationService) {
