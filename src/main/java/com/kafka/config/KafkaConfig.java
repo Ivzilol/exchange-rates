@@ -34,7 +34,6 @@ public class KafkaConfig {
                 JsonSerializer.class);
         return props;
     }
-
     @Bean
     public ProducerFactory<String,Object> producerFactory(){
         return new DefaultKafkaProducerFactory<>(producerConfig());
